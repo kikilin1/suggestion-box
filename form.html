@@ -1,0 +1,38 @@
+ First name:<br>
+    <input type="text" name="fname" id="fname">
+    <br>
+    Last name:<br>
+    <input type="text" name="lname" id="lname">
+    <br><br>
+    Suggestion:<br>
+    <input type="text" name="message" id="message">
+    <br><br>
+            
+            <div class="btn">Submit</div>
+  
+</form>
+        <script>
+            $(".btn").click(function(){
+            
+              $.ajax({
+                url:"http://104.131.17.187:4004/suggestions",
+                success:function(resp,txt,xhr){
+                     console.log(resp);
+                    },
+                  method: "POST",
+                  data:{ 
+                      fname: $("#fname").val(),
+                        lname: $("#lname").val(),
+                        message: $("#message").val(),
+                        serviceName:"kiki"
+                
+                
+                        }
+                    
+                
+              });
+            });
+        </script>
+     
+    </body>
+</html>
